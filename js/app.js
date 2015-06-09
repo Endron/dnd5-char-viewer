@@ -20,10 +20,6 @@ app.controller('CharCtrl', function($scope) {
         wis: 14,
         cha: 13
     };
-
-    $scope.getAttributeModifier = function(attrValue) {
-        return Math.floor((attrValue - 10) / 2);
-    };
 });
 
 app.filter('attributeModifier', function() {
