@@ -10,12 +10,9 @@
     <h1>{{ char.name }} the {{ char.class }}</h1>
     <h2>Attributes</h2>
     <ul>
-        <li>Strength: {{ char.str }} --> {{ char['str'] | attributeModifier }}</li>
-        <li>Dexterity: {{ char.dex }} --> {{ char['dex'] | attributeModifier }}</li>
-        <li>Constitution: {{ char.con }} --> {{ char['con'] | attributeModifier }}</li>
-        <li>Intelligence: {{ char.int }} --> {{ char['int'] | attributeModifier }}</li>
-        <li>Wisdom: {{ char.wis }} --> {{ char['wis'] | attributeModifier }}</li>
-        <li>Charisma: {{ char.cha }} --> {{ char['cha'] | attributeModifier }}</li>
+        <li ng-repeat="attribute in attributes">
+            {{ attribute.name }}: {{ char[attribute.abbr] }} --> {{ char[attribute.abbr] | attributeModifier }}
+        </li>
     </ul>
 </body>
 </html>

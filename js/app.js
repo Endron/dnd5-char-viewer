@@ -1,6 +1,15 @@
 var app = angular.module('charViewer', []);
 app.controller('CharCtrl', function($scope) {
 
+    $scope.attributes = [
+        {name: 'Strength', abbr: 'str'},
+        {name: 'Dexterity', abbr: 'dex'},
+        {name: 'Constitution', abbr: 'con'},
+        {name: 'Intelligence', abbr: 'int'},
+        {name: 'Wisdom', abbr: 'wis'},
+        {name: 'Charisma', abbr: 'cha'}
+    ];
+
     $scope.char = {
         name: 'Paul',
         class: 'Paladin',
