@@ -1,4 +1,9 @@
+# gradlew files
+build/
+.gradle
+
 # IDEA project files
 *.iml
 *.ipr
 *.iws
+.idea/
