@@ -12,7 +12,11 @@ app.controller('CharCtrl', function($scope) {
 
     $scope.char = {
         name: 'Paul',
-        class: 'Paladin',
+        classes: [
+            {name: 'Paladin', level: 1},
+            {name: 'Fighter', level: 1}
+        ],
+        background: 'nobel',
         str: 15,
         dex: 8,
         con: 16,

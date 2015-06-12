@@ -7,7 +7,12 @@
     <script src="js/app.js"></script>
 </head>
 <body ng-controller="CharCtrl">
-    <h1>{{ char.name }} the {{ char.class }}</h1>
+    <h1>{{ char.name }}</h1>
+    <h2>Class</h2>
+        <div ng-repeat="class in char.classes">
+            {{ class.name }} {{ class.level }}
+        </div>
+
     <h2>Attributes</h2>
     <ul>
         <li ng-repeat="attribute in attributes">
