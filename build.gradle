@@ -11,10 +11,14 @@ apply plugin: 'spring-boot'
 
 repositories {
     jcenter()
+    mavenCentral()
 }
 
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
+
+    compile 'org.webjars:angularjs:1.4.0'
+    compile 'org.webjars:bootstrap:3.3.4'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
