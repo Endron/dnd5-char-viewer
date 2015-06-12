@@ -16,17 +16,36 @@
     <script src="js/app.js"></script>
 </head>
 <body ng-controller="CharCtrl">
-<h1>{{ char.name }}</h1>
-<h2>Class</h2>
-<div ng-repeat="class in char.classes">
-    {{ class.name }} {{ class.level }}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <h1>{{ char.name }}</h1>
+        </div>
+        <div class="col-md-3">
+            <h2>Class</h2>
+            <span ng-repeat="class in char.classes">
+                {{ class.name }} {{ class.level }}
+            </span>
+            <h2>Race</h2>
+            <span>{{ char.race }}</span>
+        </div>
+        <div class="col-md-3">
+            <h2>Background</h2>
+            <span>{{ char.background }}</span>
+            <h2>Alignment</h2>
+            <span>{{ char.alignment }}</span>
+        </div>
+        <div class="col-md-3">
+            <h2>Experience Points</h2>
+            <span>{{ char.experiencePoints }}</span>
+        </div>
+    </div>
+    <h2>Attributes</h2>
+    <ul>
+        <li ng-repeat="attribute in attributes">
+            {{ attribute.name }}: {{ char[attribute.abbr] }} --> {{ char[attribute.abbr] | attributeModifier }}
+        </li>
+    </ul>
 </div>
-
-<h2>Attributes</h2>
-<ul>
-    <li ng-repeat="attribute in attributes">
-        {{ attribute.name }}: {{ char[attribute.abbr] }} --> {{ char[attribute.abbr] | attributeModifier }}
-    </li>
-</ul>
 </body>
 </html>

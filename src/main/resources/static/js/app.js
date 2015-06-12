@@ -11,12 +11,15 @@ app.controller('CharCtrl', function($scope) {
     ];
 
     $scope.char = {
-        name: 'Paul',
+        name: 'Berengard of Plimuth',
         classes: [
             {name: 'Paladin', level: 1},
             {name: 'Fighter', level: 1}
         ],
+        race: 'Human',
         background: 'nobel',
+        alignment: 'lawful good',
+        experiencePoints: 0,
         str: 15,
         dex: 8,
         con: 16,
