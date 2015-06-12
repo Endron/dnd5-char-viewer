@@ -18,34 +18,47 @@
 <body ng-controller="CharCtrl">
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <h1>{{ char.name }}</h1>
         </div>
         <div class="col-md-3">
-            <h2>Class</h2>
+            <h4>Class</h4>
             <span ng-repeat="class in char.classes">
                 {{ class.name }} {{ class.level }}
             </span>
-            <h2>Race</h2>
-            <span>{{ char.race }}</span>
+            <h4>Race</h4>
+            <p>{{ char.race }}</p>
         </div>
         <div class="col-md-3">
-            <h2>Background</h2>
-            <span>{{ char.background }}</span>
-            <h2>Alignment</h2>
-            <span>{{ char.alignment }}</span>
+            <h4>Background</h4>
+            <p>{{ char.background }}</p>
+            <h4>Alignment</h4>
+            <p>{{ char.alignment }}</p>
         </div>
-        <div class="col-md-3">
-            <h2>Experience Points</h2>
+        <div class="col-md-2">
+            <h4>Experience Points</h4>
             <span>{{ char.experiencePoints }}</span>
         </div>
     </div>
-    <h2>Attributes</h2>
-    <ul>
-        <li ng-repeat="attribute in attributes">
-            {{ attribute.name }}: {{ char[attribute.abbr] }} --> {{ char[attribute.abbr] | attributeModifier }}
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="panel panel-default" ng-repeat="attribute in attributes">
+                <div class="panel-heading text-center">
+                    <h4>{{ attribute.name }}</h4>
+                </div>
+                <div class="panel-body text-center">
+                    <h2>{{ char[attribute.abbr] | attributeModifier }}</h2>
+                </div>
+            </div>
+            <ul>
+                <li ng-repeat="attribute in attributes">
+                    {{ attribute.name }}: {{ char[attribute.abbr] }} --> {{ char[attribute.abbr] | attributeModifier }}
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-5"></div>
+        <div class="col-md-5"></div>
+    </div>
 </div>
 </body>
 </html>
