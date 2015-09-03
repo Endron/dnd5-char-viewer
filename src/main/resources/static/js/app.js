@@ -1,5 +1,5 @@
 var app = angular.module('charViewer', ['ngMaterial']);
-app.controller('CharCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav) {
+app.controller('CharacterCtrl', ['$scope', '$mdSidenav', 'CharacterService', function($scope, $mdSidenav, CharacterService) {
 
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle()
@@ -14,24 +14,22 @@ app.controller('CharCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav)
         {name: 'Charisma', abbr: 'cha'}
     ];
 
-    $scope.char = {
-        name: 'Berengard of Plimuth',
-        classes: [
-            {name: 'Paladin', level: 1},
-            {name: 'Fighter', level: 1}
-        ],
-        race: 'Human',
-        background: 'nobel',
-        alignment: 'lawful good',
-        experiencePoints: 0,
-        str: 15,
-        dex: 8,
-        con: 16,
-        int: 11,
-        wis: 14,
-        cha: 13
-    };
+    $scope.characters = CharacterService.getAll()
 }]);
+
+app.service('CharacterService', [function() {
+    var service = this
+
+    var allCharacters = [
+        {id: 0, name: 'Hans'},
+        {id: 1, name: 'Bob'}
+    ]
+
+    service.getAll = function() {
+        return allCharacters
+    }
+
+}])
 
 app.filter('attributeModifier', function() {
     return function(attrValue) {
