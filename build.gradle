@@ -15,10 +15,14 @@ repositories {
 }
 
 dependencies {
+    final angularVersion = '1.4.4'
+
     compile 'org.springframework.boot:spring-boot-starter-web'
 
-    runtime 'org.webjars:angularjs:1.4.4'
-    runtime 'org.webjars:bootstrap:3.3.5'
+    runtime "org.webjars:angularjs:${angularVersion}"
+    runtime "org.webjars.npm:angular-aria:${angularVersion}"
+    runtime "org.webjars.bower:angular-animate:${angularVersion}"
+    runtime 'org.webjars:angular-material:0.10.1'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }

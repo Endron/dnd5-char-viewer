@@ -1,5 +1,9 @@
-var app = angular.module('charViewer', []);
-app.controller('CharCtrl', function($scope) {
+var app = angular.module('charViewer', ['ngMaterial']);
+app.controller('CharCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav) {
+
+    $scope.toggleSidenav = function(menuId) {
+        $mdSidenav(menuId).toggle()
+    }
 
     $scope.attributes = [
         {name: 'Strength', abbr: 'str'},
@@ -27,7 +31,7 @@ app.controller('CharCtrl', function($scope) {
         wis: 14,
         cha: 13
     };
-});
+}]);
 
 app.filter('attributeModifier', function() {
     return function(attrValue) {
