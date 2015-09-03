@@ -17,8 +17,8 @@ repositories {
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
 
-    compile 'org.webjars:angularjs:1.4.0'
-    compile 'org.webjars:bootstrap:3.3.4'
+    runtime 'org.webjars:angularjs:1.4.4'
+    runtime 'org.webjars:bootstrap:3.3.5'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
