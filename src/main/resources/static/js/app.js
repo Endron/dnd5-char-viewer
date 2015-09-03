@@ -3,7 +3,7 @@ app.controller('CharacterCtrl', ['$scope', '$mdSidenav', 'CharacterService', fun
 
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle()
-    }
+    };
 
     $scope.attributes = [
         {name: 'Strength', abbr: 'str'},
@@ -23,13 +23,13 @@ app.service('CharacterService', [function() {
     var allCharacters = [
         {id: 0, name: 'Hans'},
         {id: 1, name: 'Bob'}
-    ]
+    ];
 
     service.getAll = function() {
         return allCharacters
     }
 
-}])
+}]);
 
 app.filter('attributeModifier', function() {
     return function(attrValue) {
