@@ -1,5 +1,22 @@
-var app = angular.module('charViewer', ['ngMaterial']);
-app.controller('CharacterCtrl', ['$scope', '$mdSidenav', 'CharacterService', function($scope, $mdSidenav, CharacterService) {
+var app = angular.module('charViewer', ['ngMaterial', 'ngRoute']);
+
+app.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider
+            .when('/characters', {
+                templateUrl: 'partials/empty.html',
+                controller: 'CharacterListCtrl'
+            })
+            .when('/characters/:characterId', {
+                templateUrl: 'partials/character-sheet.html',
+                controller: 'CharacterCtrl'
+            })
+            .otherwise({
+                redirectTo: '/characters'
+            })
+    }]);
+
+app.controller('CharacterListCtrl', ['$scope', '$mdSidenav', 'CharacterService', function($scope, $mdSidenav, CharacterService) {
 
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle()
@@ -15,6 +32,11 @@ app.controller('CharacterCtrl', ['$scope', '$mdSidenav', 'CharacterService', fun
     ];
 
     $scope.characters = CharacterService.getAll()
+}]);
+
+app.controller('CharacterCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
+
+    $scope.characterId = $routeParams.characterId;
 }]);
 
 app.service('CharacterService', [function() {

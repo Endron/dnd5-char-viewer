@@ -21,7 +21,8 @@ dependencies {
 
     runtime "org.webjars:angularjs:${angularVersion}"
     runtime "org.webjars.npm:angular-aria:${angularVersion}"
-    runtime "org.webjars.bower:angular-animate:${angularVersion}"
+    runtime "org.webjars.npm:angular-animate:${angularVersion}"
+    runtime "org.webjars.npm:angular-route:${angularVersion}"
     runtime 'org.webjars:angular-material:0.10.1'
 
     runtime 'org.webjars:font-awesome:4.4.0'
