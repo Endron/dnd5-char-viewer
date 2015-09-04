@@ -50,4 +50,16 @@ angular.module('characterViewer.characterService', [])
             return allCharacters
         }
 
+        service.getById = function(id) {
+            var found = null
+
+            allCharacters.forEach(function(character) {
+                if (id == character.id) {
+                    found = character
+                }
+            })
+
+            return found
+        }
+
     }])
