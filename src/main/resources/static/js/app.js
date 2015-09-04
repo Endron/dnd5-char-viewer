@@ -1,6 +1,6 @@
-var app = angular.module('characterViewer', ['ngMaterial', 'ngRoute']);
+angular.module('characterViewer', ['ngMaterial', 'ngRoute'])
 
-app.config(['$routeProvider',
+.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider
             .when('/characters', {
@@ -14,9 +14,9 @@ app.config(['$routeProvider',
             .otherwise({
                 redirectTo: '/characters'
             })
-    }]);
+    }])
 
-app.controller('CharacterListCtrl', ['$scope', '$mdSidenav', 'CharacterService', function($scope, $mdSidenav, CharacterService) {
+.controller('CharacterListCtrl', ['$scope', '$mdSidenav', 'CharacterService', function($scope, $mdSidenav, CharacterService) {
 
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle()
@@ -32,14 +32,14 @@ app.controller('CharacterListCtrl', ['$scope', '$mdSidenav', 'CharacterService',
     ];
 
     $scope.characters = CharacterService.getAll()
-}]);
+}])
 
-app.controller('CharacterSheetCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
+.controller('CharacterSheetCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
 
     $scope.characterId = $routeParams.characterId;
-}]);
+}])
 
-app.service('CharacterService', [function() {
+.service('CharacterService', [function() {
     var service = this
 
     var allCharacters = [
@@ -89,9 +89,9 @@ app.service('CharacterService', [function() {
         return allCharacters
     }
 
-}]);
+}])
 
-app.filter('attributeModifier', function() {
+.filter('attributeModifier', function() {
     return function(attrValue) {
         var mod = Math.floor((attrValue - 10) / 2);
         if (mod > 0) {
