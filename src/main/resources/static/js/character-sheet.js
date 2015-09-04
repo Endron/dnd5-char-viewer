@@ -1,4 +1,4 @@
-angular.module('characterViewer.characterSheet', ['ngMaterial'])
+angular.module('characterViewer.characterSheet', ['ngMaterial', 'characterViewer.characterService'])
 
     .controller('CharacterSheetCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
         $scope.characterId = $routeParams.characterId;
