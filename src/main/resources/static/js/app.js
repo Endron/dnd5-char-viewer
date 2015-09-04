@@ -1,4 +1,4 @@
-var app = angular.module('charViewer', ['ngMaterial', 'ngRoute']);
+var app = angular.module('characterViewer', ['ngMaterial', 'ngRoute']);
 
 app.config(['$routeProvider',
     function($routeProvider) {
@@ -9,7 +9,7 @@ app.config(['$routeProvider',
             })
             .when('/characters/:characterId', {
                 templateUrl: 'partials/character-sheet.html',
-                controller: 'CharacterCtrl'
+                controller: 'CharacterSheetCtrl'
             })
             .otherwise({
                 redirectTo: '/characters'
@@ -34,7 +34,7 @@ app.controller('CharacterListCtrl', ['$scope', '$mdSidenav', 'CharacterService',
     $scope.characters = CharacterService.getAll()
 }]);
 
-app.controller('CharacterCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
+app.controller('CharacterSheetCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
 
     $scope.characterId = $routeParams.characterId;
 }]);
