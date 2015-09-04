@@ -1,19 +1,26 @@
 <md-content layout="column" flex class="md-padding">
-    <md-tabs flex>
-        <md-tab label="Skills">
-            Skills and Attributes.
-        </md-tab>
-        <md-tab label="Fighting">
-            Weapons, Attack Rools and stuff.
-        </md-tab>
-        <md-tab label="Casting">
-            We will display Spells and stuff here. This tab should only exist for spell caster.
-        </md-tab>
-        <md-tab label="Inventory">
-            A neat list of the stuff the character is having with him.
-        </md-tab>
-        <md-tab label="Background">
-            I am a awesome Hero out to save the world.
-        </md-tab>
-    </md-tabs>
+    <md-card>
+        <md-toolbar class="md-toolbar-tools">
+            <h2>{{character.name}}</h2>
+        </md-toolbar>
+        <md-card-content>
+            <md-tabs flex>
+                <md-tab label="Skills">
+                    Skills and Attributes.
+                </md-tab>
+                <md-tab label="Fighting">
+                    Weapons, Attack Rools and stuff.
+                </md-tab>
+                <md-tab label="Casting">
+                    We will display Spells and stuff here. This tab should only exist for spell caster.
+                </md-tab>
+                <md-tab label="Inventory">
+                    A neat list of the stuff the character is having with him.
+                </md-tab>
+                <md-tab label="Background">
+                    I am a awesome Hero out to save the world.
+                </md-tab>
+            </md-tabs>
+        </md-card-content>
+    </md-card>
 </md-content>

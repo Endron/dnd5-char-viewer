@@ -2,6 +2,9 @@ angular.module('characterViewer.characterSheet', ['ngMaterial', 'characterViewer
 
     .controller('CharacterSheetCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
         $scope.characterId = $routeParams.characterId;
+        $scope.character = {
+            name: $routeParams.characterId
+        }
 
         $scope.attributes = [
             {name: 'Strength', abbr: 'str'},
