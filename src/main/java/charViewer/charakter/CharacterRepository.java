@@ -27,6 +27,19 @@ public class CharacterRepository {
         guruk.attributes.put(CHARISMA, 12);
 
         characters.add(guruk);
+
+        final Character heronimus = new Character();
+        heronimus.name = "Heronimus";
+        heronimus.classes.add(new CharacterClass("Paladin", 1));
+        heronimus.classes.add(new CharacterClass("Warlock", 1));
+        heronimus.attributes.put(STRENGTH, 12);
+        heronimus.attributes.put(DEXTERITY, 16);
+        heronimus.attributes.put(CONSTITUTION, 12);
+        heronimus.attributes.put(INTELLIGENCE, 10);
+        heronimus.attributes.put(WISDOM, 10);
+        heronimus.attributes.put(CHARISMA, 16);
+
+        characters.add(heronimus);
     }
 
     public List<Character> findAll() {
@@ -36,8 +49,7 @@ public class CharacterRepository {
     public Optional<Character> findById(String id) {
         return characters
                 .stream()
-                .filter(character -> !character.id.equals(id))
-                .peek(System.out::println)
+                .filter(character -> character.id.equals(id))
                 .findFirst();
     }
 }

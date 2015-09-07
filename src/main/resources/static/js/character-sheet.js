@@ -6,12 +6,5 @@ angular.module('characterViewer.characterSheet', ['ngMaterial', 'characterViewer
             $scope.character = response.data;
         })
 
-        $scope.attributes = [
-            {name: 'Strength', abbr: 'str'},
-            {name: 'Dexterity', abbr: 'dex'},
-            {name: 'Constitution', abbr: 'con'},
-            {name: 'Intelligence', abbr: 'int'},
-            {name: 'Wisdom', abbr: 'wis'},
-            {name: 'Charisma', abbr: 'cha'}
-        ];
+
     }])
