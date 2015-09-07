@@ -21,7 +21,9 @@ angular.module('characterViewer', ['ngMaterial', 'ngRoute', 'characterViewer.cha
             $mdSidenav(menuId).toggle()
         };
 
-        $scope.characters = CharacterService.getAll()
+        CharacterService.getAll().then(function(response) {
+            $scope.characters = response.data;
+        })
     }])
 
     .filter('attributeModifier', function() {

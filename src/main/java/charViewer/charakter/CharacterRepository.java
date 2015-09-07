@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static charViewer.charakter.Attribute.*;
 
@@ -30,5 +31,13 @@ public class CharacterRepository {
 
     public List<Character> findAll() {
         return characters;
+    }
+
+    public Optional<Character> findById(String id) {
+        return characters
+                .stream()
+                .filter(character -> !character.id.equals(id))
+                .peek(System.out::println)
+                .findFirst();
     }
 }
