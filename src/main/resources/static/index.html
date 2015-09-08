@@ -22,10 +22,10 @@
     <script src="components/startpage/startpage.js"></script>
     <script src="app/app.js"></script>
 </head>
-<body ng-controller="AppController" layout="column">
+<body ng-controller="AppController as app" layout="column">
     <md-toolbar layout="row">
         <div class="md-toolbar-tools">
-            <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
+            <md-button ng-click="app.toggleSidenav('left')" hide-gt-sm class="md-icon-button">
                 <i aria-label="Menu" class="fa fa-bars"></i>
             </md-button>
             <h1>
