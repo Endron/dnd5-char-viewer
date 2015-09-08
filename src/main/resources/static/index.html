@@ -36,14 +36,15 @@
         <md-sidenav id="left" md-component-id="left" layout="column"
                     class="md-sidenav-left md-whiteframe-z2"
                      md-is-locked-open="$mdMedia('gt-sm')">
-            <ul>
-                <li ng-repeat="character in characters">
+            <md-list>
+                <md-subheader>Character</md-subheader>
+                <md-list-item ng-repeat="character in characters">
                     <a href="#/characters/{{character.id}}">{{ character.name }}</a>
-                </li>
-            </ul>
+                </md-list-item>
+            </md-list>
         </md-sidenav>
-        <div layout="column" flex id="content">
-            <div ng-view>
+        <div id="content" flex>
+            <div ng-view >
                 <!-- put content here -->
             </div>
         </div>
