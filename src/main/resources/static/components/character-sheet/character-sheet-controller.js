@@ -1,4 +1,4 @@
-angular.module('characterViewer.character.sheet', ['ngNewRouter', 'characterViewer.character.service'])
+angular.module('characterViewer.character.sheet', ['ngNewRouter', 'characterViewer.character.service', 'charViewer.attribute.modifier'])
 
     .controller('CharacterSheetController', ['CharacterService', '$routeParams', CharacterSheetController]);
 
