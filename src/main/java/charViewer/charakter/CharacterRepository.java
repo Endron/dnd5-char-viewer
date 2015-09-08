@@ -38,6 +38,7 @@ public class CharacterRepository {
         guruk.attributes.put(INTELLIGENCE, 10);
         guruk.attributes.put(WISDOM, 8);
         guruk.attributes.put(CHARISMA, 12);
+        guruk.skillProficiency.add("Acrobatics");
 
         characters.add(guruk);
     }

@@ -33,10 +33,10 @@ function CharacterSheetController(CharacterService, $routeParams) {
 
     ctrl.getSkillBonus = function(skillName) {
 
-       var skillAttribute = ctrl.attributeForSkill(skillName);
+       var skillAttribute = ctrl.getAttributeForSkill(skillName);
 
         var attributeBonus = ctrl.getAttributeBonus(skillAttribute);
-        var proficiencyBonus = 0; //TODO check if proficency must be added.
+        var proficiencyBonus = ctrl.getProficiencyBonusForSkill(skillName);
 
         if(attributeBonus + proficiencyBonus > 0) { //TODO move to filter?
             return '+' + (attributeBonus + proficiencyBonus);
@@ -53,7 +53,7 @@ function CharacterSheetController(CharacterService, $routeParams) {
         return Math.floor((ctrl.getAttribute(attributeName) - 10) / 2);
     };
 
-    ctrl.attributeForSkill = function(skillName) {
+    ctrl.getAttributeForSkill = function(skillName) {
         var skill = null;
         ctrl.skills.forEach(function(it) {
             if(it.name == skillName) {
@@ -65,6 +65,25 @@ function CharacterSheetController(CharacterService, $routeParams) {
             return '';
         } else {
             return skill.attribute;
+        }
+    };
+
+    ctrl.isProficientInSkill = function(skillName) {
+        var isProficient = false;
+        ctrl.character.skillProficiency.forEach(function(it) {
+            if(it == skillName) {
+                isProficient = true;
+            }
+        });
+
+        return isProficient;
+    };
+
+    ctrl.getProficiencyBonusForSkill = function(skillName) {
+        if(ctrl.isProficientInSkill(skillName)) {
+            return ctrl.character.proficiencyBonus;
+        } else {
+            return 0;
         }
     };
 }
