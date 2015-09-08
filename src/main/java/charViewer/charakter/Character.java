@@ -14,4 +14,5 @@ public class Character {
     public List<CharacterClass> classes = new ArrayList<>();
 
     public Map<Attribute, Integer> attributes = new EnumMap<>(Attribute.class);
+    public String icon = "fa-user";
 }
