@@ -4,14 +4,19 @@
     </md-toolbar>
 
     <md-card-content>
-        <div layout="row" layout-wrap>
-            <div flex-gt-md="33" flex-md="50" flex-sm="50" ng-repeat="(name, value) in characterSheet.character.attributes">
-                <div layout="column" layout-align="space-around center">
-                    <h5 flex="15">{{ name }}</h5>
-                    <h1 flex>{{ value | attributeModifier }}</h1>
+        <md-tabs md-dynamic-height>
+            <md-tab label="Attributes">
+                <div layout="row" layout-wrap>
+                    <div flex-gt-md="33" flex-md="50" flex-sm="50" ng-repeat="(name, value) in characterSheet.character.attributes">
+                        <div layout="column" layout-align="space-around center">
+                            <h5 flex="15">{{ name }}</h5>
+                            <h1 flex>{{ value | attributeModifier }}</h1>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </md-tab>
+        </md-tabs>
+
 
 
 
