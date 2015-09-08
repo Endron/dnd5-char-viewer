@@ -1,14 +1,15 @@
 angular.module('characterViewer.character.service', [])
 
-    .service('CharacterService', ['$http', function($http) {
-        var service = this
+    .service('CharacterService', ['$http', CharacterService])
 
-        service.getAll = function() {
-            return $http.get('/characters')
-        }
+function CharacterService($http) {
+    var service = this;
 
-        service.getById = function(id) {
-            return $http.get('/characters/' + id)
-        }
+    service.getAll = function() {
+        return $http.get('/characters')
+    };
 
-    }])
+    service.getById = function(id) {
+        return $http.get('/characters/' + id)
+    };
+}
