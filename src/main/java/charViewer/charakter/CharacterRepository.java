@@ -16,18 +16,6 @@ public class CharacterRepository {
     public CharacterRepository() {
         characters = new ArrayList<>();
 
-        final Character guruk = new Character();
-        guruk.name = "Guruk";
-        guruk.classes.add(new CharacterClass("Babarian", 2));
-        guruk.attributes.put(STRENGTH, 15);
-        guruk.attributes.put(DEXTERITY, 10);
-        guruk.attributes.put(CONSTITUTION, 15);
-        guruk.attributes.put(INTELLIGENCE, 10);
-        guruk.attributes.put(WISDOM, 8);
-        guruk.attributes.put(CHARISMA, 12);
-
-        characters.add(guruk);
-
         final Character heronimus = new Character();
         heronimus.name = "Heronimus";
         heronimus.classes.add(new CharacterClass("Paladin", 1));
@@ -40,6 +28,18 @@ public class CharacterRepository {
         heronimus.attributes.put(CHARISMA, 16);
 
         characters.add(heronimus);
+
+        final Character guruk = new Character();
+        guruk.name = "Guruk";
+        guruk.classes.add(new CharacterClass("Babarian", 2));
+        guruk.attributes.put(STRENGTH, 15);
+        guruk.attributes.put(DEXTERITY, 10);
+        guruk.attributes.put(CONSTITUTION, 15);
+        guruk.attributes.put(INTELLIGENCE, 10);
+        guruk.attributes.put(WISDOM, 8);
+        guruk.attributes.put(CHARISMA, 12);
+
+        characters.add(guruk);
     }
 
     public List<Character> findAll() {
