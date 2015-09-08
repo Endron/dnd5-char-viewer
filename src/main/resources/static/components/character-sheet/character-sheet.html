@@ -1,3 +1,19 @@
-<md-toolbar class="md-toolbar-tools">
-    <h2><i class="fa" ng-class="characterSheet.character.icon"></i> {{ characterSheet.character.name }}</h2>
-</md-toolbar>
+<md-card flex layout="column">
+    <md-toolbar class="md-toolbar-tools">
+        <h2><i class="fa" ng-class="characterSheet.character.icon"></i> {{ characterSheet.character.name }}</h2>
+    </md-toolbar>
+
+    <md-card-content>
+        <div layout="row" layout-wrap>
+            <div flex-gt-md="33" flex-md="50" flex-sm="50" ng-repeat="(name, value) in characterSheet.character.attributes">
+                <div layout="column" layout-align="space-around center">
+                    <h4 flex="15">{{ name }}</h4>
+                    <h1 flex>{{ value }}</h1>
+                </div>
+            </div>
+        </div>
+
+
+
+    </md-card-content>
+</md-card-content>
