@@ -29,5 +29,42 @@ function CharacterSheetController(CharacterService, $routeParams) {
         {name: 'Sleight of Hand', attribute: 'DEXTERITY'},
         {name: 'Stealth', attribute: 'DEXTERITY'},
         {name: 'Survival', attribute: 'WISDOM'}
-    ]
+    ];
+
+    ctrl.getSkillBonus = function(skillName) {
+
+       var skillAttribute = ctrl.attributeForSkill(skillName);
+
+        var attributeBonus = ctrl.getAttributeBonus(skillAttribute);
+        var proficiencyBonus = 0; //TODO check if proficency must be added.
+
+        if(attributeBonus + proficiencyBonus > 0) { //TODO move to filter?
+            return '+' + (attributeBonus + proficiencyBonus);
+        } else {
+            return attributeBonus + proficiencyBonus;
+        }
+    };
+
+    ctrl.getAttribute = function(attributeName) {
+        return ctrl.character.attributes[attributeName]
+    };
+
+    ctrl.getAttributeBonus = function(attributeName) {
+        return Math.floor((ctrl.getAttribute(attributeName) - 10) / 2);
+    };
+
+    ctrl.attributeForSkill = function(skillName) {
+        var skill = null;
+        ctrl.skills.forEach(function(it) {
+            if(it.name == skillName) {
+                skill = it;
+            }
+        });
+
+        if(skill == null || skill == undefined) {
+            return '';
+        } else {
+            return skill.attribute;
+        }
+    };
 }

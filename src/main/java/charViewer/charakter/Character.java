@@ -19,6 +19,8 @@ public class Character {
 
     public Map<Attribute, Integer> attributes = new EnumMap<>(Attribute.class);
 
+    public List<String> skillProficiency = new ArrayList<>();
+
     public int getProficiencyBonus() {
         final int effectiveLevel = classes.stream()
                 .collect(summingInt(it -> it.level));
