@@ -38,9 +38,12 @@
         <md-sidenav id="left" md-component-id="left" layout="column"
                     class="md-sidenav-left md-whiteframe-z2"
                      md-is-locked-open="$mdMedia('gt-sm')" ng-viewport="navigation">
+
         </md-sidenav>
         <div id="content" flex>
-            <md-content ng-viewport="content"></md-content>
+            <md-content layout="column" flex class="md-padding" ng-viewport="content">
+
+            </md-content>
         </div>
     </div>
 </body>
