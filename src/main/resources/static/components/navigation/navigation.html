@@ -1,0 +1,6 @@
+<md-subheader>Character</md-subheader>
+<md-list>
+    <md-list-item ng-repeat="character in navigation.characters" ng-click="navigation.navigateTo(character)">
+        <p>{{character.name}}</p>
+    </md-list-item>
+</md-list>

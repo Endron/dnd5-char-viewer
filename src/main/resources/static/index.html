@@ -14,13 +14,14 @@
     <script src="webjars/angularjs/1.4.4/angular.js"></script>
     <script src="webjars/angular-animate/1.4.4/angular-animate.js"></script>
     <script src="webjars/angular-aria/1.4.4/angular-aria.js"></script>
-    <script src="webjars/angular-route/1.4.4/angular-route.js"></script>
+    <script src="webjars/angular-new-router/0.5.3/dist/router.es5.js"></script>
     <script src="webjars/angular-material/0.10.1/angular-material.js"></script>
-    <script src="js/character-service.js"></script>
-    <script src="js/character-sheet.js"></script>
-    <script src="js/app.js"></script>
+    <script src="services/character-service.js"></script>
+    <script src="components/character-sheet/character-sheet-controller.js"></script>
+    <script src="components/navigation/navigation-controller.js"></script>
+    <script src="app/app.js"></script>
 </head>
-<body ng-controller="CharacterListCtrl" layout="column">
+<body ng-controller="AppController" layout="column">
     <md-toolbar layout="row">
         <div class="md-toolbar-tools">
             <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
@@ -35,18 +36,10 @@
     <div layout="row" flex>
         <md-sidenav id="left" md-component-id="left" layout="column"
                     class="md-sidenav-left md-whiteframe-z2"
-                     md-is-locked-open="$mdMedia('gt-sm')">
-            <md-list>
-                <md-subheader>Character</md-subheader>
-                <md-list-item ng-repeat="character in characters">
-                    <a href="#/characters/{{character.id}}">{{ character.name }}</a>
-                </md-list-item>
-            </md-list>
+                     md-is-locked-open="$mdMedia('gt-sm')" ng-viewport="navigation">
         </md-sidenav>
         <div id="content" flex>
-            <div ng-view >
-                <!-- put content here -->
-            </div>
+            <md-content ng-viewport="content"></md-content>
         </div>
     </div>
 </body>

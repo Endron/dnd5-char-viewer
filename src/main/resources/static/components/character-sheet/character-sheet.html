@@ -1,13 +1,13 @@
 <div layout-fill>
 <md-content>
     <md-toolbar class="md-toolbar-tools">
-        <h2>{{character.name}}</h2>
+        <h2>{{characterSheet.character.name}}</h2>
     </md-toolbar>
     <md-tabs>
         <md-tab label="Skills" layout="column">
             <md-content>
                 <md-list>
-                    <div ng-repeat="(key, value) in character.attributes">
+                    <div ng-repeat="(key, value) in characterSheet.character.attributes">
                     <md-subheader>{{key}}</md-subheader>
                         <md-list-item >
                             {{value}}
