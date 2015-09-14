@@ -7,10 +7,7 @@ angular.module('characterViewer.navigation', [
 function NavigationController($router, $mdSidenav, CharacterService) {
     var ctrl = this;
 
-    ctrl.characters = [];
-    CharacterService.getAll().then(function(response) {
-        ctrl.characters = response.data;
-    });
+    ctrl.characters = CharacterService.getAll();
 
     ctrl.navigateTo = function(character) {
         $router.parent.navigate('/characters/' + character.id);

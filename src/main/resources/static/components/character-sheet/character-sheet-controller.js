@@ -11,10 +11,7 @@ angular.module('characterViewer.character.sheet', [
 function CharacterSheetController(CharacterService, AttributeModifierService, $routeParams) {
     var ctrl = this;
 
-    ctrl.character = null;
-    CharacterService.getById($routeParams.characterId).then(function(response) {
-        ctrl.character = response.data;
-    });
+    ctrl.character = CharacterService.getById($routeParams.characterId);
 
     ctrl.skills = [
         {name: 'Acrobatics', attribute: 'DEXTERITY'},

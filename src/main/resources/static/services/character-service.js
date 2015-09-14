@@ -1,8 +1,10 @@
-angular.module('charViewer.character.service', [])
+angular.module('charViewer.character.service', [
+    'ngResource'
+    ])
 
-    .service('CharacterService', ['$http', CharacterService]);
+    .service('CharacterService', ['$resource', CharacterService]);
 
-function CharacterService($http) {
+function CharacterService($resource) {
     /*
      * TODO implement caching
      * The service should probably implement some kind of caching. We should avoid loading the character with each method
@@ -11,12 +13,13 @@ function CharacterService($http) {
      */
 
     var service = this;
+    var Character = $resource('/characters/:charId', {charId:'@id'})
 
     service.getAll = function() {
-        return $http.get('/characters')
+        return Character.query();
     };
 
     service.getById = function(id) {
-        return $http.get('/characters/' + id)
+        return Character.get({charId:id});
     };
 }

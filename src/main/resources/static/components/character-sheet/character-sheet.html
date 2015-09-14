@@ -1,4 +1,4 @@
-<md-card ng-if="characterSheet.character != null" flex layout="column">
+<md-card ng-if="characterSheet.character.id != undefined" flex layout="column">
     <md-toolbar class="md-toolbar-tools">
         <h2><i class="fa" ng-class="characterSheet.character.icon"></i> {{ characterSheet.character.name }}</h2>
     </md-toolbar>
