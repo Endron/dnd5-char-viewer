@@ -80,6 +80,14 @@ function CharacterSheetController(CharacterService, AttributeModifierService, $r
         return isProficient;
     };
 
+    ctrl.getProficientInSkillIcon = function(skillname) {
+        if(ctrl.isProficientInSkill(skillname)) {
+            return 'fa-circle';
+        } else {
+            return 'fa-circle-o';
+        }
+    };
+
     ctrl.getProficiencyBonusForSkill = function(skillName) {
         if(ctrl.isProficientInSkill(skillName)) {
             return ctrl.character.proficiencyBonus;

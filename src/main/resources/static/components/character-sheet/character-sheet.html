@@ -27,7 +27,10 @@
                     </md-list-item>
 
                     <md-list-item ng-repeat="skill in characterSheet.skills | filter:characterSheet.skillQuery | orderBy:'name'" layout="row" flex layout-margin>
-                        <div flex="10" layout="column" layout-align="center end">
+                        <div flex="5">
+                            <i class="fa" ng-class="characterSheet.getProficientInSkillIcon(skill.name)"></i>
+                        </div>
+                        <div flex="5" layout="column" layout-align="center center">
                             {{ characterSheet.getSkillBonus(skill.name) | addPlus }}
                         </div>
                         <div flex layout="column" layout-align="center start">
