@@ -6,9 +6,9 @@ angular.module('characterViewer.character.sheet', [
     'charViewer.addPlus'
     ])
 
-    .controller('CharacterSheetController', ['CharacterService', 'AttributeModifierService', '$routeParams', CharacterSheetController]);
+    .controller('CharacterSheetController', ['$mdDialog', 'CharacterService', 'AttributeModifierService', '$routeParams', CharacterSheetController]);
 
-function CharacterSheetController(CharacterService, AttributeModifierService, $routeParams) {
+function CharacterSheetController($mdDialog, CharacterService, AttributeModifierService, $routeParams) {
     var ctrl = this;
 
     ctrl.character = CharacterService.getById($routeParams.characterId);
@@ -95,4 +95,13 @@ function CharacterSheetController(CharacterService, AttributeModifierService, $r
             return 0;
         }
     };
+
+    ctrl.doSkillCheck = function(skillName) {
+        $mdDialog.show(
+            $mdDialog.alert()
+                .clickOutsideToClose(true)
+                .title('Skill Check: ' + skillName)
+                .ok('OK')
+        );
+    }
 }
