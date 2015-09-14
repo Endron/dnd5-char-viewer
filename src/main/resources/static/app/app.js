@@ -1,11 +1,10 @@
 angular.module('characterViewer', [
     'ngMaterial',
-    'ngNewRouter',
     'characterViewer.startpage',
     'characterViewer.character.sheet',
     'characterViewer.navigation'])
 
-    .controller('AppController', ['$router', '$mdSidenav', AppController])
+    .controller('AppController', ['$mdSidenav', AppController])
 
 ;
 
@@ -16,7 +15,7 @@ AppController.$routeConfig = [
     {path: '/characters/:characterId', components: {content: 'characterSheet', navigation: 'navigation'}}
 ];
 
-function AppController($router, $mdSidenav) {
+function AppController($mdSidenav) {
     var ctrl = this;
 
     ctrl.toggleSidenav = function(id) {
