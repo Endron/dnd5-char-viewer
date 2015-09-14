@@ -1,10 +1,11 @@
-<md-card flex layout="column">
+<md-card ng-if="characterSheet.character != null" flex layout="column">
     <md-toolbar class="md-toolbar-tools">
         <h2><i class="fa" ng-class="characterSheet.character.icon"></i> {{ characterSheet.character.name }}</h2>
     </md-toolbar>
 
     <md-card-content>
         <md-tabs md-dynamic-height>
+
             <md-tab label="Attributes">
                 <div layout="row" layout-wrap>
                     <div flex-gt-md="33" flex-md="50" flex-sm="50" ng-repeat="(name, value) in characterSheet.character.attributes">
@@ -15,6 +16,7 @@
                     </div>
                 </div>
             </md-tab>
+
             <md-tab label="Skills">
                 <md-list>
                     <md-list-item class="md-3-line">
@@ -39,4 +41,4 @@
         </md-tabs>
 
     </md-card-content>
-</md-card-content>
+</md-card>

@@ -11,7 +11,7 @@ angular.module('characterViewer.character.sheet', [
 function CharacterSheetController(CharacterService, AttributeModifierService, $routeParams) {
     var ctrl = this;
 
-    ctrl.character = {};
+    ctrl.character = null;
     CharacterService.getById($routeParams.characterId).then(function(response) {
         ctrl.character = response.data;
     });
