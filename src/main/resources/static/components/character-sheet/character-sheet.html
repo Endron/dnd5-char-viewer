@@ -26,14 +26,12 @@
                         </md-input-container>
                     </md-list-item>
 
-                    <md-list-item ng-repeat="skill in characterSheet.skills | filter:characterSheet.skillQuery | orderBy:'name'">
-                        <div layout="row" flex layout-margin>
-                            <div flex="10" layout="column" layout-align="center end">
-                                {{ characterSheet.getSkillBonus(skill.name) | addPlus }}
-                            </div>
-                            <div flex layout="column" layout-align="center start">
-                                {{ skill.name }}
-                            </div>
+                    <md-list-item ng-repeat="skill in characterSheet.skills | filter:characterSheet.skillQuery | orderBy:'name'" layout="row" flex layout-margin>
+                        <div flex="10" layout="column" layout-align="center end">
+                            {{ characterSheet.getSkillBonus(skill.name) | addPlus }}
+                        </div>
+                        <div flex layout="column" layout-align="center start">
+                            {{ skill.name }}
                         </div>
                     </md-list-item>
                 </md-list>
