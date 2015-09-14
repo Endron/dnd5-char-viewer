@@ -5,7 +5,7 @@ angular.module('characterViewer.character.sheet', ['ngNewRouter', 'characterView
 function CharacterSheetController(CharacterService, $routeParams) {
     var ctrl = this;
 
-    ctrl.character = {}
+    ctrl.character = {};
     CharacterService.getById($routeParams.characterId).then(function(response) {
         ctrl.character = response.data;
     });
