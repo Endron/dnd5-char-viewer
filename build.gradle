@@ -8,6 +8,7 @@ buildscript {
 }
 
 apply plugin: 'spring-boot'
+apply plugin: 'groovy'
 
 repositories {
     jcenter()
@@ -16,6 +17,8 @@ repositories {
 
 dependencies {
     final angularVersion = '1.4.4'
+
+    compile 'org.codehaus.groovy:groovy-all:2.4.4:indy'
 
     compile 'org.springframework.boot:spring-boot-starter-web'
 
@@ -29,4 +32,8 @@ dependencies {
     runtime 'org.webjars:font-awesome:4.4.0'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.withType(GroovyCompile) {
+    groovyOptions.optimizationOptions.indy = true
 }
