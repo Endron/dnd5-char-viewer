@@ -1,4 +1,4 @@
-angular.module('characterViewer.character.service', [])
+angular.module('charViewer.character.service', [])
 
     .service('CharacterService', ['$http', CharacterService])
 

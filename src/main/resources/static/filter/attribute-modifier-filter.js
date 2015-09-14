@@ -1,9 +1,11 @@
-angular.module('charViewer.attribute.modifier', [])
+angular.module('charViewer.attribute.modifier.filter', [
+    'charViewer.attribute.modifier.service'
+])
 
-    .filter('attributeModifier', AttributeModifier);
+    .filter('attributeModifier', ['AttributeModifierService', AttributeModifier]);
 
-function AttributeModifier() {
+function AttributeModifier(AttributeModifierService) {
     return function(input) {
-        return Math.floor((input - 10) / 2);
+        return AttributeModifierService.calcModifier(input);
     }
 }

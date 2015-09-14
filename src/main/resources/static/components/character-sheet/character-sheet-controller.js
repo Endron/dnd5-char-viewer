@@ -1,12 +1,14 @@
 angular.module('characterViewer.character.sheet', [
     'ngNewRouter',
-    'characterViewer.character.service',
-    'charViewer.attribute.modifier',
-    'charViewer.addPlus'])
+    'charViewer.character.service',
+    'charViewer.attribute.modifier.service',
+    'charViewer.attribute.modifier.filter',
+    'charViewer.addPlus'
+    ])
 
-    .controller('CharacterSheetController', ['CharacterService', '$routeParams', CharacterSheetController]);
+    .controller('CharacterSheetController', ['CharacterService', 'AttributeModifierService', '$routeParams', CharacterSheetController]);
 
-function CharacterSheetController(CharacterService, $routeParams) {
+function CharacterSheetController(CharacterService, AttributeModifierService, $routeParams) {
     var ctrl = this;
 
     ctrl.character = {};
@@ -50,7 +52,9 @@ function CharacterSheetController(CharacterService, $routeParams) {
     };
 
     ctrl.getAttributeBonus = function(attributeName) {
-        return Math.floor((ctrl.getAttribute(attributeName) - 10) / 2);
+        var attributeValue = ctrl.getAttribute(attributeName);
+
+        return AttributeModifierService.calcModifier(attributeValue);
     };
 
     ctrl.getAttributeForSkill = function(skillName) {

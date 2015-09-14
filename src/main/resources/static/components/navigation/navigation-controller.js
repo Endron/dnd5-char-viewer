@@ -1,7 +1,7 @@
 angular.module('characterViewer.navigation', [
     'ngMaterial',
     'ngNewRouter',
-    'characterViewer.character.service'])
+    'charViewer.character.service'])
     .controller('NavigationController', ['$router', '$mdSidenav', 'CharacterService', NavigationController]);
 
 function NavigationController($router, $mdSidenav, CharacterService) {
