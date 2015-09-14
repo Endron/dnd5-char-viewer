@@ -23,7 +23,7 @@ public class CharacterProficencyBonusTest {
 
     private Character characterWithLevel(int level) {
         final Character character = new Character();
-        character.classes.add(new CharacterClass("dummy", level));
+        character.getClasses().add(new CharacterClass("dummy", level));
 
         return character;
     }
