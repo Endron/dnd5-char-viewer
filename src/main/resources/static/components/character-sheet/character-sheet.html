@@ -18,7 +18,14 @@
             <md-tab label="Skills">
                 <md-list>
                     <md-list-item ng-repeat="skill in characterSheet.skills | orderBy:'name'">
-                        {{ skill.name }} {{ characterSheet.getSkillBonus(skill.name) | addPlus }}
+                        <div layout="row" flex layout-margin>
+                            <div flex="10" layout="column" layout-align="center end">
+                                {{ characterSheet.getSkillBonus(skill.name) | addPlus }}
+                            </div>
+                            <div flex layout="column" layout-align="center start">
+                                {{ skill.name }}
+                            </div>
+                        </div>
                     </md-list-item>
                 </md-list>
             </md-tab>
