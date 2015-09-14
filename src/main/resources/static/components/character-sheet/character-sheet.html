@@ -10,7 +10,7 @@
                     <div flex-gt-md="33" flex-md="50" flex-sm="50" ng-repeat="(name, value) in characterSheet.character.attributes">
                         <div layout="column" layout-align="space-around center">
                             <h5 flex="15">{{ name }}</h5>
-                            <h1 flex>{{ value | attributeModifier }}</h1>
+                            <h1 flex>{{ value | attributeModifier | addPlus}}</h1>
                         </div>
                     </div>
                 </div>
@@ -18,14 +18,11 @@
             <md-tab label="Skills">
                 <md-list>
                     <md-list-item ng-repeat="skill in characterSheet.skills | orderBy:'name'">
-                        {{ skill.name }} {{ characterSheet.getSkillBonus(skill.name) }}
+                        {{ skill.name }} {{ characterSheet.getSkillBonus(skill.name) | addPlus }}
                     </md-list-item>
                 </md-list>
             </md-tab>
         </md-tabs>
-
-
-
 
     </md-card-content>
 </md-card-content>

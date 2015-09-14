@@ -1,4 +1,8 @@
-angular.module('characterViewer.character.sheet', ['ngNewRouter', 'characterViewer.character.service', 'charViewer.attribute.modifier'])
+angular.module('characterViewer.character.sheet', [
+    'ngNewRouter',
+    'characterViewer.character.service',
+    'charViewer.attribute.modifier',
+    'charViewer.addPlus'])
 
     .controller('CharacterSheetController', ['CharacterService', '$routeParams', CharacterSheetController]);
 
@@ -38,11 +42,7 @@ function CharacterSheetController(CharacterService, $routeParams) {
         var attributeBonus = ctrl.getAttributeBonus(skillAttribute);
         var proficiencyBonus = ctrl.getProficiencyBonusForSkill(skillName);
 
-        if(attributeBonus + proficiencyBonus > 0) { //TODO move to filter?
-            return '+' + (attributeBonus + proficiencyBonus);
-        } else {
-            return attributeBonus + proficiencyBonus;
-        }
+        return attributeBonus + proficiencyBonus;
     };
 
     ctrl.getAttribute = function(attributeName) {
