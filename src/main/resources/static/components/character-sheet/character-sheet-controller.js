@@ -119,5 +119,22 @@ function CharacterSheetController($mdDialog, CharacterService, AttributeModifier
                 .content(dialogContent)
                 .ok('OK')
         );
-    }
+    };
+
+    ctrl.doAttributeCheck = function(attributeName) {
+        var dieRoll = DiceRollerService.d20();
+        var attributeBonus = ctrl.getAttributeBonus(attributeName);
+        var result = dieRoll + attributeBonus;
+
+        var attributeBonusFormat = attributeBonus < 0 ? (' - ' + (-1 * attributeBonus)) : (' + ' + attributeBonus);
+        var dialogContent = dieRoll + attributeBonusFormat + ' = ' + result;
+
+        $mdDialog.show(
+            $mdDialog.alert()
+                .clickOutsideToClose(true)
+                .title('Attribute Check: ' + attributeName)
+                .content(dialogContent)
+                .ok('OK')
+        );
+    };
 }
