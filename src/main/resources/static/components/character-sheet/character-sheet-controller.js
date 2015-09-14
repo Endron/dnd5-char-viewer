@@ -2,13 +2,21 @@ angular.module('characterViewer.character.sheet', [
     'ngNewRouter',
     'charViewer.character.service',
     'charViewer.attribute.modifier.service',
+    'charViewer.diceRoller.service',
     'charViewer.attribute.modifier.filter',
     'charViewer.addPlus'
     ])
 
-    .controller('CharacterSheetController', ['$mdDialog', 'CharacterService', 'AttributeModifierService', '$routeParams', CharacterSheetController]);
+    .controller('CharacterSheetController', [
+        '$mdDialog',
+        'CharacterService',
+        'AttributeModifierService',
+        'DiceRollerService',
+        '$routeParams',
+        CharacterSheetController
+        ]);
 
-function CharacterSheetController($mdDialog, CharacterService, AttributeModifierService, $routeParams) {
+function CharacterSheetController($mdDialog, CharacterService, AttributeModifierService, DiceRollerService, $routeParams) {
     var ctrl = this;
 
     ctrl.character = CharacterService.getById($routeParams.characterId);
@@ -36,7 +44,7 @@ function CharacterSheetController($mdDialog, CharacterService, AttributeModifier
 
     ctrl.getSkillBonus = function(skillName) {
 
-       var skillAttribute = ctrl.getAttributeForSkill(skillName);
+        var skillAttribute = ctrl.getAttributeForSkill(skillName);
 
         var attributeBonus = ctrl.getAttributeBonus(skillAttribute);
         var proficiencyBonus = ctrl.getProficiencyBonusForSkill(skillName);
@@ -97,10 +105,18 @@ function CharacterSheetController($mdDialog, CharacterService, AttributeModifier
     };
 
     ctrl.doSkillCheck = function(skillName) {
+        var dieRoll = DiceRollerService.d20();
+        var skillBonus = ctrl.getSkillBonus(skillName);
+        var result = dieRoll + skillBonus;
+
+        var skillBonusFormat = skillBonus < 0 ? skillBonus : ('+' + skillBonus);
+        var dialogContent = dieRoll + ' ' + skillBonusFormat + ' = ' + result;
+
         $mdDialog.show(
             $mdDialog.alert()
                 .clickOutsideToClose(true)
                 .title('Skill Check: ' + skillName)
+                .content(dialogContent)
                 .ok('OK')
         );
     }
