@@ -17,7 +17,14 @@
             </md-tab>
             <md-tab label="Skills">
                 <md-list>
-                    <md-list-item ng-repeat="skill in characterSheet.skills | orderBy:'name'">
+                    <md-list-item class="md-3-line">
+                        <md-input-container class="md-list-item-text">
+                            <label><i class="fa fa-search"></i> Search for skill...</label>
+                            <input type="text" ng-model="characterSheet.skillQuery" />
+                        </md-input-container>
+                    </md-list-item>
+
+                    <md-list-item ng-repeat="skill in characterSheet.skills | filter:characterSheet.skillQuery | orderBy:'name'">
                         <div layout="row" flex layout-margin>
                             <div flex="10" layout="column" layout-align="center end">
                                 {{ characterSheet.getSkillBonus(skill.name) | addPlus }}
