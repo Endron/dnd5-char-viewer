@@ -10,7 +10,10 @@ function NavigationController($router, $mdSidenav, CharacterService) {
     ctrl.characters = CharacterService.getAll();
 
     ctrl.navigateTo = function(character) {
-        $router.parent.navigate('/characters/' + character.id);
-        $mdSidenav('left').close();
+        $mdSidenav('left')
+            .close()
+            .then(function() {
+                $router.parent.navigate('/characters/' + character.id);
+            });
     };
 }
