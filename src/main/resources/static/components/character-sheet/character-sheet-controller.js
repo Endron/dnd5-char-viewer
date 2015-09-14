@@ -109,8 +109,8 @@ function CharacterSheetController($mdDialog, CharacterService, AttributeModifier
         var skillBonus = ctrl.getSkillBonus(skillName);
         var result = dieRoll + skillBonus;
 
-        var skillBonusFormat = skillBonus < 0 ? skillBonus : ('+' + skillBonus);
-        var dialogContent = dieRoll + ' ' + skillBonusFormat + ' = ' + result;
+        var skillBonusFormat = skillBonus < 0 ? (' - ' + (-1 * skillBonus)) : (' + ' + skillBonus);
+        var dialogContent = dieRoll + skillBonusFormat + ' = ' + result;
 
         $mdDialog.show(
             $mdDialog.alert()
