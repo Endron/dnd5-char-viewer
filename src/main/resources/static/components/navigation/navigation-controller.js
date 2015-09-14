@@ -7,7 +7,7 @@ angular.module('characterViewer.navigation', [
 function NavigationController($router, $mdSidenav, CharacterService) {
     var ctrl = this;
 
-    ctrl.characters = [{name: 'TestA'}, {name:'TestB'}];
+    ctrl.characters = [];
     CharacterService.getAll().then(function(response) {
         ctrl.characters = response.data;
     });
