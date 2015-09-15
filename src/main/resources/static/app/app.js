@@ -4,6 +4,12 @@ angular.module('characterViewer', [
     'characterViewer.character.sheet',
     'characterViewer.navigation'])
 
+    .config(function($mdThemingProvider) {
+        $mdThemingProvider.theme('default')
+            .primaryPalette('purple')
+            .accentPalette('orange')
+    })
+
     .controller('AppController', ['$mdSidenav', AppController])
 
 ;
