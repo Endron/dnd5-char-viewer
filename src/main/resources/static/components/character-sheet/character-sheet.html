@@ -1,4 +1,4 @@
-<md-content flex layout="column" layout-fill class="md-padding">
+<md-content flex layout-fill layout-padding>
     <md-card flex layout-fill ng-if="characterSheet.character.id != undefined">
 
         <md-card-content flex layout="column" layout-fill>
@@ -9,7 +9,7 @@
 
                 <md-tab label="Attributes" flex layout-fill>
                     <md-tab-body layout-fill flex>
-                        <div flex layout-fill layout="row" layout-wrap class="md-padding">
+                        <div flex layout-fill layout="row" layout-wrap layout-padding>
                             <div flex-gt-md="33" flex-md="50" flex-sm="50"
                                     ng-repeat="(name, value) in characterSheet.character.attributes">
                                 <md-button layout="column" layout-align="space-around center" flex layout-fill
@@ -23,13 +23,13 @@
                 </md-tab>
 
                 <md-tab label="Skills" flex layout-fill>
-                    <md-tab-body flex layout-fill>
-                        <div layout="column" layout-fill class="md-padding">
+                    <md-tab-body flex layout-fill layout="column">
+                        <div layout="column" layout-fill>
                             <md-input-container flex class="md-list-item-text">
                                 <label><i class="fa fa-search"></i> Search for skill...</label>
                                 <input type="text" ng-model="characterSheet.skillQuery" />
                             </md-input-container>
-                            <div flex layout="row" layout-fill layout-wrap>
+                            <div flex layout="row" layout-fill layout-wrap layout-padding>
                                 <div  flex-gt-md="33" flex-md="50" flex-sm="50"
                                         ng-repeat="skill in characterSheet.skills |filter:characterSheet.skillQuery | orderBy:'name'">
                                     <md-button layout="column" layout-align="space-around center" flex layout-fill
