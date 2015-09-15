@@ -8,7 +8,7 @@ import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class CharacterProficencyBonusTest {
+public class CharacterProficiencyBonusTest {
 
     @Parameterized.Parameter(1)
     public int bonus;
@@ -17,7 +17,7 @@ public class CharacterProficencyBonusTest {
     public int level;
 
     @Test
-    public void calcProficencyBonus() {
+    public void calcProficiencyBonus() {
         assertEquals(bonus, characterWithLevel(level).getProficiencyBonus());
     }
 
