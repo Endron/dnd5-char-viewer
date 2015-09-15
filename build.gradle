@@ -16,20 +16,10 @@ repositories {
 }
 
 dependencies {
-    final angularVersion = '1.4.4'
-
     compile 'org.codehaus.groovy:groovy-all:2.4.4:indy'
-
     compile 'org.springframework.boot:spring-boot-starter-web'
 
-    runtime "org.webjars:angularjs:${angularVersion}"
-    runtime "org.webjars.npm:angular-aria:${angularVersion}"
-    runtime "org.webjars.npm:angular-animate:${angularVersion}"
-    runtime "org.webjars.npm:angular-resource:${angularVersion}"
     runtime 'org.webjars.bower:angular-new-router:0.5.3'
-    runtime 'org.webjars:angular-material:0.10.1'
-
-    runtime 'org.webjars:font-awesome:4.4.0'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
