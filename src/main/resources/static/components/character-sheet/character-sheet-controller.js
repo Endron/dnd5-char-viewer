@@ -121,20 +121,31 @@ function CharacterSheetController($mdDialog, CharacterService, AttributeModifier
         );
     };
 
-    ctrl.doAttributeCheck = function(attributeName) {
-        var dieRoll = DiceRollerService.d20();
-        var attributeBonus = ctrl.getAttributeBonus(attributeName);
-        var result = dieRoll + attributeBonus;
-
-        var attributeBonusFormat = attributeBonus < 0 ? (' - ' + (-1 * attributeBonus)) : (' + ' + attributeBonus);
-        var dialogContent = dieRoll + attributeBonusFormat + ' = ' + result;
-
-        $mdDialog.show(
-            $mdDialog.alert()
-                .clickOutsideToClose(true)
-                .title('Attribute Check: ' + attributeName)
-                .content(dialogContent)
-                .ok('OK')
+    ctrl.doAttributeCheck = function(attributeName, $event) {
+        var parentElement = angular.element(document.body);
+        $mdDialog.show({
+                parent: parentElement,
+                targetEvent: $event,
+                template:
+                    '<md-dialog>'
+                    + '<md-dialog-conten layout="column" layout-align="center center">'
+                    + '<h4>{{ dialogCtrl.dieRoll }} + {{ dialogCtrl.bonus }} =</h4>'
+                    + '<h1>{{ dialogCtrl.result }}</h1>'
+                    + '<h1 ng-if="dialogCtrl.crit">critical</h1>'
+                    + '</md-dialog-content>'
+                    + '</md-dialog>',
+                controller: DialogController,
+                controllerAs: 'dialogCtrl',
+                clickOutsideToClose: true
+            }
         );
+        function DialogController($scope, DiceRollerService) {
+            var dialogCtrl = this;
+            dialogCtrl.attribute = attributeName;
+            dialogCtrl.dieRoll = DiceRollerService.d20();
+            dialogCtrl.bonus = ctrl.getAttributeBonus(dialogCtrl.attribute);
+            dialogCtrl.result = dialogCtrl.dieRoll + dialogCtrl.bonus;
+            dialogCtrl.crit = (dialogCtrl.dieRoll == 20)
+        }
     };
 }
