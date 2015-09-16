@@ -126,14 +126,7 @@ function CharacterSheetController($mdDialog, CharacterService, AttributeModifier
         $mdDialog.show({
                 parent: parentElement,
                 targetEvent: $event,
-                template:
-                    '<md-dialog>'
-                    + '<md-dialog-conten layout="column" layout-align="center center">'
-                    + '<h4>{{ dialogCtrl.dieRoll }} + {{ dialogCtrl.bonus }} =</h4>'
-                    + '<h1>{{ dialogCtrl.result }}</h1>'
-                    + '<h1 ng-if="dialogCtrl.crit">critical</h1>'
-                    + '</md-dialog-content>'
-                    + '</md-dialog>',
+                templateUrl: 'dialogs/check-dialog.html',
                 controller: DialogController,
                 controllerAs: 'dialogCtrl',
                 clickOutsideToClose: true
