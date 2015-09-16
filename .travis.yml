@@ -1,4 +1,10 @@
 language: java
-
 jdk:
- - oraclejdk8
+- oraclejdk8
+deploy:
+  provider: releases
+  api_key:
+    secure: Isv5r3R6nqejG6BwaIVrlWxZ+cjDAR5UxHTy3ysyMx6wKnk5q+kC8/0KnBcX5IweYyxhVIJF+2x/zuacAY5Gsskttir1fOFZY979ae4d399+uKO/as4bBrt662ARvMsTAexhaK1cIEdrjY5dPhRJsBMaEz+1AqnOLOZIqS7vcVttYcm1CQUdzPHJ/0kepo+W51MM3oVcjc5MMWaQlfb3uSF4RVVqqQ6i0Ep+mmbtJ+zAbiJc8WtaNUSwoupmdGdARcKi4CcHY/IqofdqIhpwUUpdRizeDfwn2oxXAG1vPOLj5HcxpnzULxgz6SFynzYc5ubqRBN2ELCPMZ1hKCnSi0xgtvS/3hW+aoXpPgY25NafTUXIDbXa+k6dcuO67LA275d4lJ894VrRiexNZiiQl4O32OGrCaLekWj4XBae0U6kK+ihsyahiV6pCa2YRTCJkY9NoynQhtTF3tvAeWFxtO4ANufPznMW3TQ9TqAHEUoBCpQ7a/u3Bre3kOwCQb5AEuyb9tTBPV7CcsAcNFJiUlv11jyTJbrom9AnuZgD7in7us58YICgt4B4Qd+VHs9ijeSSZFL2jK45ToR7dw7jFJoHENzfIDJwdslHHN2TiVnd96RJ9oGI2u82yL2R50BRIeMc31GBx6WpjLWQwWdptKF4PvpNjdxJoLGM5AvDbaw=
+  file: build/lips/dnd5-char-viewer.jar
+  on:
+    repo: Endron/dnd5-char-viewer
