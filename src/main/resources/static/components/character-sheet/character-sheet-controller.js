@@ -109,7 +109,7 @@ function CharacterSheetController($mdDialog, CharacterService, AttributeModifier
         $mdDialog.show({
                 parent: parentElement,
                 targetEvent: $event,
-                templateUrl: 'dialogs/check-dialog.html',
+                templateUrl: 'components/character-sheet/check-dialog.html',
                 controller: DialogController,
                 controllerAs: 'dialogCtrl',
                 clickOutsideToClose: true
@@ -129,7 +129,7 @@ function CharacterSheetController($mdDialog, CharacterService, AttributeModifier
         $mdDialog.show({
                 parent: parentElement,
                 targetEvent: $event,
-                templateUrl: 'dialogs/check-dialog.html',
+                templateUrl: 'components/character-sheet/check-dialog.html',
                 controller: DialogController,
                 controllerAs: 'dialogCtrl',
                 clickOutsideToClose: true
