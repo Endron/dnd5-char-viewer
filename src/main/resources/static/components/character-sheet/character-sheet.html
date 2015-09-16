@@ -33,7 +33,7 @@
                                 <div  flex-gt-md="33" flex-md="50" flex-sm="50"
                                         ng-repeat="skill in characterSheet.skills |filter:characterSheet.skillQuery | orderBy:'name'">
                                     <md-button layout="column" layout-align="space-around center" flex layout-fill
-                                               ng-click="characterSheet.doSkillCheck(skill.name)">
+                                               ng-click="characterSheet.doSkillCheck(skill.name, $event)">
                                         <h4 flex>
                                             <i class="fa" ng-class="characterSheet.getProficientInSkillIcon(skill.name)"></i>
                                             {{ skill.name }}

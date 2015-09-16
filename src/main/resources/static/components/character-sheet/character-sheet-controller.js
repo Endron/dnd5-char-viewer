@@ -104,21 +104,24 @@ function CharacterSheetController($mdDialog, CharacterService, AttributeModifier
         }
     };
 
-    ctrl.doSkillCheck = function(skillName) {
-        var dieRoll = DiceRollerService.d20();
-        var skillBonus = ctrl.getSkillBonus(skillName);
-        var result = dieRoll + skillBonus;
-
-        var skillBonusFormat = skillBonus < 0 ? (' - ' + (-1 * skillBonus)) : (' + ' + skillBonus);
-        var dialogContent = dieRoll + skillBonusFormat + ' = ' + result;
-
-        $mdDialog.show(
-            $mdDialog.alert()
-                .clickOutsideToClose(true)
-                .title('Skill Check: ' + skillName)
-                .content(dialogContent)
-                .ok('OK')
+    ctrl.doSkillCheck = function(skillName, $event) {
+        var parentElement = angular.element(document.body);
+        $mdDialog.show({
+                parent: parentElement,
+                targetEvent: $event,
+                templateUrl: 'dialogs/check-dialog.html',
+                controller: DialogController,
+                controllerAs: 'dialogCtrl',
+                clickOutsideToClose: true
+            }
         );
+        function DialogController(DiceRollerService) {
+            var dialogCtrl = this;
+            dialogCtrl.dieRoll = DiceRollerService.d20();
+            dialogCtrl.bonus = ctrl.getSkillBonus(skillName);
+            dialogCtrl.result = dialogCtrl.dieRoll + dialogCtrl.bonus;
+            dialogCtrl.crit = (dialogCtrl.dieRoll == 20)
+        }
     };
 
     ctrl.doAttributeCheck = function(attributeName, $event) {
@@ -132,11 +135,10 @@ function CharacterSheetController($mdDialog, CharacterService, AttributeModifier
                 clickOutsideToClose: true
             }
         );
-        function DialogController($scope, DiceRollerService) {
+        function DialogController(DiceRollerService) {
             var dialogCtrl = this;
-            dialogCtrl.attribute = attributeName;
             dialogCtrl.dieRoll = DiceRollerService.d20();
-            dialogCtrl.bonus = ctrl.getAttributeBonus(dialogCtrl.attribute);
+            dialogCtrl.bonus = ctrl.getAttributeBonus(attributeName);
             dialogCtrl.result = dialogCtrl.dieRoll + dialogCtrl.bonus;
             dialogCtrl.crit = (dialogCtrl.dieRoll == 20)
         }
