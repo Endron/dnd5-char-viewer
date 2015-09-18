@@ -5,6 +5,8 @@ import groovy.transform.ToString
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
+import org.junit.runners.Parameterized.Parameter
+import org.junit.runners.Parameterized.Parameters
 
 import static org.junit.Assert.assertEquals
 
@@ -18,7 +20,7 @@ public class CharacterProficiencyBonusTest {
         int bonus
     }
 
-    @Parameterized.Parameter
+    @Parameter
     public TestData data
 
     @Test
@@ -30,7 +32,7 @@ public class CharacterProficiencyBonusTest {
         assertEquals data.bonus, character.getProficiencyBonus()
     }
 
-    @Parameterized.Parameters(name = '{index}: {0}')
+    @Parameters(name = '{index}: {0}')
     static List<TestData> testData() {
         return [
                 new TestData(level: 1, bonus: 2),
