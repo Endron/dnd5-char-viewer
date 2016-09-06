@@ -22,6 +22,9 @@ dependencies {
   runtime 'org.webjars.bower:angular-new-router:0.5.3'
 
   testCompile 'org.springframework.boot:spring-boot-starter-test'
+  testCompile('org.spockframework:spock-spring:1.0-groovy-2.4') {
+    exclude group: 'org.codehaus.groovy', module: 'groovy-alla'
+  }
 }
 
 tasks.withType(GroovyCompile) {
