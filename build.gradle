@@ -1,29 +1,29 @@
 buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
-    }
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
+  }
 }
 
 apply plugin: 'spring-boot'
 apply plugin: 'groovy'
 
 repositories {
-    jcenter()
-    mavenCentral()
+  jcenter()
+  mavenCentral()
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.4.7:indy'
-    compile 'org.springframework.boot:spring-boot-starter-web'
+  compile 'org.codehaus.groovy:groovy-all:2.4.7:indy'
+  compile 'org.springframework.boot:spring-boot-starter-web'
 
-    runtime 'org.webjars.bower:angular-new-router:0.5.3'
+  runtime 'org.webjars.bower:angular-new-router:0.5.3'
 
-    testCompile 'org.springframework.boot:spring-boot-starter-test'
+  testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.withType(GroovyCompile) {
-    groovyOptions.optimizationOptions.indy = true
+  groovyOptions.optimizationOptions.indy = true
 }

@@ -1,11 +1,11 @@
 angular.module('charViewer.attribute.modifier.filter', [
-    'charViewer.attribute.modifier.service'
+  'charViewer.attribute.modifier.service'
 ])
 
-    .filter('attributeModifier', ['AttributeModifierService', AttributeModifier]);
+  .filter('attributeModifier', ['AttributeModifierService', AttributeModifier]);
 
 function AttributeModifier(AttributeModifierService) {
-    return function(input) {
-        return AttributeModifierService.calcModifier(input);
-    }
+  return function (input) {
+    return AttributeModifierService.calcModifier(input);
+  }
 }

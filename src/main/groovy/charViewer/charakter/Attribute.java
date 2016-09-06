@@ -2,25 +2,25 @@ package charViewer.charakter;
 
 public enum Attribute {
 
-    STRENGTH("STR"),
+  STRENGTH("STR"),
 
-    DEXTERITY("DEX"),
+  DEXTERITY("DEX"),
 
-    CONSTITUTION("CON"),
+  CONSTITUTION("CON"),
 
-    INTELLIGENCE("INT"),
+  INTELLIGENCE("INT"),
 
-    WISDOM("WIS"),
+  WISDOM("WIS"),
 
-    CHARISMA("CHA");
+  CHARISMA("CHA");
 
-    private final String abbreviation;
+  private final String abbreviation;
 
-    Attribute(String abbr) {
-        this.abbreviation = abbr;
-    }
+  Attribute(String abbr) {
+    this.abbreviation = abbr;
+  }
 
-    public String getAbbreviation() {
-        return abbreviation;
-    }
+  public String getAbbreviation() {
+    return abbreviation;
+  }
 }
